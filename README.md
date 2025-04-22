@@ -29,4 +29,15 @@
 To run this project:
 
 1. Clone the repo:
-  
+    ```bash
+   git clone https://github.com/Codiologies/EWell.git
+    ```
+2. Open in Android Studio
+
+3. Add your Firebase google-services.json to the app directory
+
+4. Sync Gradle and Run the app
+
+🤝 Contributing
+
+-  Want to contribute or suggest improvements? Feel free to open an issue or submit a pull request.
