@@ -19,29 +19,24 @@
 - User chat data is stored securely in Firebase
 - Authenticated sessions for each user
 - Support request system to handle user issues privately
-
+  
 ## 📸 Screenshots
 
-### Login  
-![LoginPage](GitHub%20Resources/login.png)  
+<p float="left">
+  <img src="GitHub%20Resources/login.png" width="30%" />
+  <img src="GitHub%20Resources/signup.png" width="30%" />
+  <img src="GitHub%20Resources/set.png" width="30%" />
+</p>
 
-### SignUp  
-![SignUp](GitHub%20Resources/signup.png)  
+<p float="left">
+  <img src="GitHub%20Resources/home.png" width="30%" />
+  <img src="GitHub%20Resources/sideview.png" width="30%" />
+  <img src="GitHub%20Resources/help.png" width="30%" />
+</p>
 
-### Forgot Password  
-![SignUp](GitHub%20Resources/set.png) 
-
-### HomePage  
-![SignUp](GitHub%20Resources/home.png) 
-
-### SideBar  
-![SignUp](GitHub%20Resources/sideview.png) 
-
-### ChatBot  
-![SignUp](GitHub%20Resources/help.png) 
-
-### Profile  
-![SignUp](GitHub%20Resources/photo.png) 
+<p float="left">
+  <img src="GitHub%20Resources/photo.png" width="30%" />
+</p>
 
 
 
