@@ -22,7 +22,28 @@
 
 ## 📸 Screenshots
 
-> 📷 _Add screenshots of your app UI here (chat screen, profile, homepage, etc.)_
+### Login  
+![LoginPage](GitHub%20Resources/login.png)  
+
+### SignUp  
+![SignUp](GitHub%20Resources/signup.png)  
+
+### Forgot Password  
+![SignUp](GitHub%20Resources/set.png) 
+
+### HomePage  
+![SignUp](GitHub%20Resources/home.png) 
+
+### SideBar  
+![SignUp](GitHub%20Resources/sideview.png) 
+
+### ChatBot  
+![SignUp](GitHub%20Resources/help.png) 
+
+### Profile  
+![SignUp](GitHub%20Resources/photo.png) 
+
+
 
 ## 🚀 Getting Started
 
