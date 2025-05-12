@@ -2,7 +2,7 @@ package com.example.ewell
 
 
 import android.content.Intent
-import android.content.SharedPreferences
+
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout

@@ -230,28 +230,50 @@
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Mobile Number -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <!-- Country Code and Mobile Number -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:hint="Mobile Number"
-                        app:boxStrokeColor="#40c1fa"
-                        app:hintTextColor="#000000"
-                        app:prefixTextColor="#000000"
-                        app:startIconDrawable="@drawable/ic_baseline_phone_iphone_24"
-                        app:startIconTint="#40c1fa">
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/MobileNo"
+                        <!-- Country Code Picker -->
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/countryCodePicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_gravity="center_vertical"
+                            app:ccp_showNameCode="false"
+                            app:ccp_showPhoneCode="true"
+                            app:ccp_autoFormatNumber="true"
+                            app:ccp_defaultNameCode="IN"
+                            app:ccp_contentColor="#000000"
+                            app:ccp_arrowColor="#40c1fa"
+                            app:ccp_textSize="14sp" />
+
+                        <!-- Mobile Number -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/mobileInputLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="phone"
-                            android:maxLines="1"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:hint="Mobile Number"
+                            app:boxStrokeColor="#40c1fa"
+                            app:hintTextColor="#000000"
+                            app:startIconDrawable="@drawable/ic_baseline_phone_iphone_24"
+                            app:startIconTint="#40c1fa">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/MobileNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone"
+                                android:maxLines="1"
+                                android:textColor="#000000"
+                                android:textSize="14sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
                     <!-- Sign Up Button -->
                     <com.google.android.material.button.MaterialButton

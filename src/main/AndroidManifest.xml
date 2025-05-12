@@ -43,6 +43,9 @@
             android:name=".HealthDetails"
             android:exported="true" />
         <activity
+            android:name=".VerificationPendingActivity"
+            android:exported="true" />
+        <activity
             android:name=".SignUp"
             android:exported="true" />
         <activity

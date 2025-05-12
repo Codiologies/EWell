@@ -47,12 +47,45 @@ class MainActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(emailText, passwordText)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            saveLoginNotificationToFirebase(emailText)
-                            Handler(Looper.getMainLooper()).postDelayed({
-                                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, HomePage::class.java))
-                                finish()
-                            }, animationDuration)
+                            // Check if email is verified
+                            if (auth.currentUser?.isEmailVerified == true) {
+                                // Email is verified, proceed with login
+                                saveLoginNotificationToFirebase(emailText)
+                                Handler(Looper.getMainLooper()).postDelayed({
+                                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, HomePage::class.java))
+                                    finish()
+                                }, animationDuration)
+                            } else {
+                                // Email is not verified, sign out and redirect to verification screen
+                                auth.signOut()
+                                setContentView(R.layout.activity_main)
+
+                                Toast.makeText(
+                                    this,
+                                    "Please verify your email before logging in",
+                                    Toast.LENGTH_LONG
+                                ).show()
+
+                                // Navigate to verification pending screen
+                                val intent = Intent(this, VerificationPendingActivity::class.java)
+                                intent.putExtra("email", emailText)
+                                startActivity(intent)
+
+                                // Re-setup the UI elements since we reset the content view
+                                val emailAgain = findViewById<TextInputEditText>(R.id.Email)
+                                val passwordAgain = findViewById<TextInputEditText>(R.id.Password)
+                                val loginButtonAgain = findViewById<Button>(R.id.LoginBtn)
+                                val signupTextViewAgain = findViewById<TextView>(R.id.SignupBtn)
+                                val forgotPasswordTextViewAgain = findViewById<TextView>(R.id.ForgotPasswordBtn)
+
+                                emailAgain.setText(emailText)
+                                setupClickListeners(
+                                    loginButtonAgain,
+                                    signupTextViewAgain,
+                                    forgotPasswordTextViewAgain
+                                )
+                            }
                         } else {
                             setContentView(R.layout.activity_main)
                             Toast.makeText(
@@ -65,8 +98,7 @@ class MainActivity : AppCompatActivity() {
                             val passwordAgain = findViewById<TextInputEditText>(R.id.Password)
                             val loginButtonAgain = findViewById<Button>(R.id.LoginBtn)
                             val signupTextViewAgain = findViewById<TextView>(R.id.SignupBtn)
-                            val forgotPasswordTextViewAgain =
-                                findViewById<TextView>(R.id.ForgotPasswordBtn)
+                            val forgotPasswordTextViewAgain = findViewById<TextView>(R.id.ForgotPasswordBtn)
 
                             emailAgain.setText(emailText)
                             setupClickListeners(
@@ -104,7 +136,7 @@ class MainActivity : AppCompatActivity() {
         logoImageView.startAnimation(pulseAnimation)
     }
 
-    // ✅ Save login notification to Firebase
+    // Save login notification to Firebase
     private fun saveLoginNotificationToFirebase(email: String) {
         val userId = auth.currentUser?.uid
         if (userId != null) {
@@ -120,8 +152,7 @@ class MainActivity : AppCompatActivity() {
             notificationId?.let {
                 userNotificationRef.child(it).setValue(notification)
                     .addOnSuccessListener {
-//                        Toast.makeText(this, "Notification saved successfully!", Toast.LENGTH_SHORT)
-//                            .show()
+                        // Success notification commented out
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(
@@ -136,4 +167,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
